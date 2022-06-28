@@ -20,7 +20,7 @@ abstract class GUI : Listener {
 
     protected open fun displaying() {}
 
-    fun openGUI() {
+    open fun openGUI() {
         enable(plugin)
         displaying()
         player.openInventory(gui)
@@ -45,9 +45,9 @@ abstract class GUI : Listener {
     /**
      * [Slot] 기능
      */
-    protected fun setItem(slot: Slot) = gui.setItem(slot.getIndex(), slot.item)
+    protected open fun setItem(slot: Slot) = gui.setItem(slot.getIndex(), slot.item)
 
-    protected fun setItems(slots: Array<out Slot>) {
+    protected open fun setItems(slots: Array<out Slot>) {
         for (slot in slots) setItem(slot)
     }
 
