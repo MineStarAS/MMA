@@ -3,6 +3,7 @@ package kr.kro.minestar.utility.gui
 import kr.kro.minestar.utility.event.disable
 import kr.kro.minestar.utility.event.enable
 import kr.kro.minestar.utility.item.Slot
+import kr.kro.minestar.utility.item.display
 import kr.kro.minestar.utility.item.isSameItem
 import org.bukkit.entity.Player
 import org.bukkit.event.EventHandler
@@ -53,6 +54,11 @@ abstract class GUI : Listener {
 
     protected fun getSlot(item: ItemStack, slots: Array<out Slot>): Slot? {
         for (slot in slots) if (slot.item.isSameItem(item)) return slot
+        return null
+    }
+
+    protected fun getSlotByDisplay(item: ItemStack, slots: Array<out Slot>): Slot? {
+        for (slot in slots) if (slot.item.display() == item.display()) return slot
         return null
     }
 }
